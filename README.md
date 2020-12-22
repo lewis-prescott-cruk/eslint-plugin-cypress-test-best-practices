@@ -1,6 +1,6 @@
 # eslint-plugin-test-best-practices
 
-best practices
+best practices for cypress tests. From my experience at Cancer Research UK.
 
 ## Installation
 
@@ -35,16 +35,11 @@ Then configure the rules you want to use under the rules section.
 ```json
 {
     "rules": {
-        "test-best-practices/rule-name": 2
+        "test-best-practices/at-least-one-assertion": 2
     }
 }
 ```
 
 ## Supported Rules
 
-* Fill in provided rules here
-
-
-
-
-
+* See [docs](/docs/rules)
