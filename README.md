@@ -40,6 +40,16 @@ Then configure the rules you want to use under the rules section.
 }
 ```
 
+Use the recommended configuration and you can forego configuring _rules_ individually. See below for which rules are included.
+
+```json
+{
+  "extends": [
+    "plugin:cypress-test-best-practices/recommended"
+  ]
+}
+```
+
 ## Supported Rules
 
 * See ```docs``` folder
