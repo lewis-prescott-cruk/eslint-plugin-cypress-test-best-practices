@@ -1,12 +1,20 @@
 {
   "name": "eslint-plugin-cypress-test-best-practices",
-  "version": "0.0.0",
+  "version": "0.0.2",
   "description": "best practices",
   "keywords": [
     "eslint",
     "eslintplugin",
     "eslint-plugin"
   ],
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/lewis-prescott-cruk/eslint-plugin-cypress-test-best-practices.git"
+  },
+  "bugs": {
+    "url": "https://github.com/lewis-prescott-cruk/eslint-plugin-cypress-test-best-practices/issues"
+  },
+  "homepage": "https://github.com/lewis-prescott-cruk/eslint-plugin-cypress-test-best-practices#readme",
   "author": "Lewis Prescott",
   "main": "lib/index.js",
   "scripts": {
