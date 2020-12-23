@@ -12,7 +12,12 @@ var ruleTester = new RuleTester();
 ruleTester.run("at-least-one-assertion", rule, {
 
     valid: [
-        "cy.contains('success').should('be.visible');"
+        "cy.contains('success').should('be.visible');",
+        dedent`Object.defineProperty(win, 'ga', {
+            configurable: false,
+            get: function() { return ga },
+            set: function() { },
+        });`
     ],
 
     invalid: [
@@ -21,7 +26,7 @@ ruleTester.run("at-least-one-assertion", rule, {
             it('incorrect', function() {
               cy.get('submit').click();
             });
-          `,
+            `,
             errors: [{
                 message: "test should contain at least 1 should or expect"
             }]
