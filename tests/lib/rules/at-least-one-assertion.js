@@ -17,7 +17,44 @@ ruleTester.run("at-least-one-assertion", rule, {
             configurable: false,
             get: function() { return ga },
             set: function() { },
-        });`
+        });`,
+        dedent`
+        it('include', function() {
+            cy.visit('https://example.cypress.io');
+            cy.contains('type').click();
+            expect(cy.url()).to.include('/commands/actions');
+         });
+        `,
+        dedent`
+        it('not equal', function() {
+            expect(name).to.not.equal('Jane');
+         });
+        `,
+        dedent`
+        it('deep', function() {
+            expect(deepObj).to.have.deep.property('tests[1]', 'e2e')
+         });
+        `,
+        dedent`
+        it('most', function() {
+            expect('test').to.have.length.of.at.most(4);
+         });
+        `,
+        dedent`
+        it('empty', function() {
+            expect([]).to.be.empty
+         });
+        `,
+        dedent`
+        it('exist', function() {
+            expect(myVar).to.exist
+         });
+        `,
+        dedent`
+        it('ok', function() {
+            expect(undefined).to.not.be.ok
+         });
+        `
     ],
 
     invalid: [
