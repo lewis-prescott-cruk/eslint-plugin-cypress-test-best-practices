@@ -16,6 +16,12 @@ Next, install `eslint-plugin-cypress-test-best-practices`:
 $ npm install eslint-plugin-cypress-test-best-practices --save-dev
 ```
 
+### Peer dependencies
+```
+$ npm install eslint-plugin-cypress --save-dev
+$ npm install eslint-plugin-chai-friendly --save-dev
+```
+
 
 ## Usage
 
