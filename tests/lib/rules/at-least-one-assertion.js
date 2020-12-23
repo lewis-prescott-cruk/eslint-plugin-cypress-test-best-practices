@@ -46,6 +46,11 @@ ruleTester.run("at-least-one-assertion", rule, {
          });
         `,
         dedent`
+        it('empty', function() {
+            expect(true).to.be.true;
+         });
+        `,
+        dedent`
         it('exist', function() {
             expect(myVar).to.exist
          });

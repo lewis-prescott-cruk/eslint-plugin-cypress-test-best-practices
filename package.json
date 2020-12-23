@@ -1,6 +1,6 @@
 {
   "name": "eslint-plugin-cypress-test-best-practices",
-  "version": "0.1.1",
+  "version": "0.1.2",
   "description": "best practices",
   "keywords": [
     "eslint",
@@ -18,7 +18,7 @@
   "author": "Lewis Prescott",
   "main": "lib/index.js",
   "scripts": {
-    "test": "mocha tests tests/lib/rules/at-least-one-assertion.js"
+    "test": "mocha tests --recursive"
   },
   "dependencies": {
     "requireindex": "~1.1.0"
