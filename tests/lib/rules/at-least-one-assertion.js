@@ -46,7 +46,7 @@ ruleTester.run("at-least-one-assertion", rule, {
          });
         `,
         dedent`
-        it('empty', function() {
+        it('true', function() {
             expect(true).to.be.true;
          });
         `,
@@ -59,7 +59,52 @@ ruleTester.run("at-least-one-assertion", rule, {
         it('ok', function() {
             expect(undefined).to.not.be.ok
          });
-        `
+        `,
+        dedent`
+        it('should assert text', function() {
+            cy.getInputByLabel('org').select('text').then(function($org) {
+              expect($org.text()).to.have.string('text');
+            });
+        });
+        `,
+        dedent`
+        it('nested include', function() {
+            cy.getInputByLabel('org').select('text').then(function($org) {
+                expect(cy.url()).to.include('/commands/actions');
+            });
+        });
+        `,
+        dedent`it('should text nested', function() {
+            cy.getInputByLabel('org').select('text').then(function($org) {
+              $org.should('have.text', 'text');
+            });
+        });
+        `,
+        dedent`it('nested deep', function() {
+            cy.getInputByLabel('org').select('text').then(function($org) {
+                expect(deepObj).to.have.deep.property('tests[1]', 'e2e');
+            });
+        });`,
+        dedent`it('nested most', function() {
+            cy.getInputByLabel('org').select('text').then(function($org) {
+                expect('test').to.have.length.of.at.most(4);
+            });
+        });`,
+        dedent`it('nested empty', function() {
+            cy.getInputByLabel('org').select('text').then(function($org) {
+                expect([]).to.be.empty
+            });
+        });`,
+        dedent`it('nested exist', function() {
+            cy.getInputByLabel('org').select('text').then(function($org) {
+                expect(myVar).to.exist
+            });
+        });`,
+        dedent`it('nested not ok', function() {
+            cy.getInputByLabel('org').select('text').then(function($org) {
+                expect(myVar).to.not.be.ok
+            });
+        });`
     ],
 
     invalid: [
