@@ -104,7 +104,26 @@ ruleTester.run("at-least-one-assertion", rule, {
             cy.getInputByLabel('org').select('text').then(function($org) {
                 expect(myVar).to.not.be.ok
             });
-        });`
+        });`,
+        dedent`it('should be equal nested', function() {
+            cy.get('input[id*=testId]').siblings('.text').then(function(num) {
+              float = num.text().split(':');
+              expect(parseFloat(float[1].replace('£', ''))).to.be.equal(0);
+            });
+          });
+        `,
+        dedent`it('should be equal double nested', function() {
+            cy.get('@price').then(function(price) {
+                cy.get('.price').then(function($total) {
+                    expect(parseFloat(price)).to.be.equal(parseFloat($total.text().replace('£', '')));
+                });
+            });
+        });
+        `,
+        dedent`it('should and', function() {
+            cy.get('.active .text').should('exist').and('have.text', 'Checkout');
+        });
+        `
     ],
 
     invalid: [
